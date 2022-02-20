@@ -24,7 +24,7 @@ export class ScaleDecoder {
   processResult(subtype: string) {
     const resultByte = this.getNextU8();
     const types = subtype.split(',').map(type => type.trim());
-    if (types.length != 2 || ![0, 1].includes(resultByte)) {
+    if (types.length != 2) {
       throw new InvalidScaleTypeValueError('Invalid subtypes for the Result type');
     }
     if (resultByte == 0) {
